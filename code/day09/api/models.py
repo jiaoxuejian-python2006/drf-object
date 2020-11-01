@@ -83,3 +83,15 @@ class AuthorDetail(BaseModel):
 
     def __str__(self):
         return "%s的详情" % self.author.author_name
+
+class User(BaseModel):
+    user_name = models.CharField(max_length=128)
+    password = models.IntegerField(max_length=10)
+
+    class Meta:
+        db_table = "bz_user"
+        verbose_name = "用户"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.user_name
